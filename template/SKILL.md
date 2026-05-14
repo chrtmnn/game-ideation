@@ -2,8 +2,8 @@
 name: skill-name
 description: Use when the user asks to [trigger condition]. Also activates when [alternative trigger]. [Describe what the skill does in one sentence.]
 metadata:
-  author: chrtmnn <c@hrtmnn.com>
-  version: 0.1.0
+    author: chrtmnn <c@hrtmnn.com>
+    version: 0.1.0
 ---
 
 # Skill Name
