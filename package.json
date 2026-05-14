@@ -1,0 +1,21 @@
+{
+  "name": "game-ideation-skills",
+  "version": "0.1.0",
+  "description": "Collection of skills for AI agents to support game ideation and early development processes",
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate-skills.mjs"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "ai-agents",
+    "skills",
+    "game-ideation",
+    "chat-gpt",
+    "claude",
+    "claude-code"
+  ],
+  "license": "MIT"
+}

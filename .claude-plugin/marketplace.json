@@ -1,0 +1,19 @@
+{
+  "$schema": "https://claude.ai/schemas/plugin-manifest/v1",
+  "id": "game-ideation-skills",
+  "name": "Game Ideation Skills",
+  "version": "1.0.0",
+  "description": "A collection of AI agent skills for game ideation and early game development workflows.",
+  "author": {
+    "name": "Christian Hartmann",
+    "email": "c@hrtmnn.com",
+    "url": "https://github.com/chrtmnn"
+  },
+  "homepage": "https://github.com/chrtmnn/game-ideation-skills",
+  "license": "MIT",
+  "tags": ["game-dev", "ideation", "workflow", "code-review", "release-notes"],
+  "skills": [],
+  "compatibility": {
+    "claude_code": ">=1.0.0"
+  }
+}
