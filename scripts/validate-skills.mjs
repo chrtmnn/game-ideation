@@ -12,7 +12,8 @@ const seen = new Set();
 let errors = 0;
 
 function readFrontmatter(file) {
-  const text = fs.readFileSync(file, "utf8");
+  // Normalize CRLF → LF so the regex works regardless of platform line endings.
+  const text = fs.readFileSync(file, "utf8").replace(/\r\n/g, "\n");
   const match = text.match(/^---\n([\s\S]*?)\n---\n?/);
   if (!match) return null;
 
@@ -65,6 +66,23 @@ function validateSkill(skillDir) {
   if (fm.description && fm.description.length > 1024) {
     console.error(`✖  ${rel}: description exceeds 1024 characters`);
     errors++;
+  }
+
+  // Sibling-skill reference check: every `../<other-skill>/...` path mentioned
+  // in the SKILL.md body must resolve to an existing file.
+  const body = fs.readFileSync(skillFile, "utf8");
+  const siblingRefRe = /`(\.\.\/[a-z0-9-]+\/[^`\s]+)`/g;
+  const checked = new Set();
+  let m;
+  while ((m = siblingRefRe.exec(body)) !== null) {
+    const ref = m[1];
+    if (checked.has(ref)) continue;
+    checked.add(ref);
+    const resolved = path.resolve(skillDir, ref);
+    if (!fs.existsSync(resolved)) {
+      console.error(`✖  ${rel}: broken sibling reference "${ref}"`);
+      errors++;
+    }
   }
 
   console.log(`✓  ${rel}`);

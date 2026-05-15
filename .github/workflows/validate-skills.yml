@@ -28,5 +28,5 @@ jobs:
         with:
           node-version: 22
 
-      - name: Run skill validator
-        run: node scripts/validate-skills.mjs --verbose
+      - name: Validate skills
+        run: node scripts/validate-skills.mjs

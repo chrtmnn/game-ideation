@@ -1,18 +1,33 @@
 {
   "$schema": "https://claude.ai/schemas/plugin-manifest/v1",
-  "id": "game-ideation-skills",
+  "id": "game-ideation",
   "name": "Game Ideation Skills",
-  "version": "1.0.0",
-  "description": "A collection of AI agent skills for game ideation and early game development workflows.",
+  "version": "0.1.0",
+  "description": "A collection of AI agent skills for game ideation and early game development workflows, based on the Daniel Dumont workshop methodology. The skill `init-game-docs` is the foundation — it scaffolds the document structure and owns the shared workshop reference files that all other skills read from. Install `init-game-docs` first; install other skills only as needed.",
   "author": {
     "name": "Christian Hartmann",
     "email": "c@hrtmnn.com",
     "url": "https://github.com/chrtmnn"
   },
-  "homepage": "https://github.com/chrtmnn/game-ideation-skills",
+  "homepage": "https://github.com/chrtmnn/game-ideation",
   "license": "MIT",
-  "tags": ["game-dev", "ideation", "workflow", "code-review", "release-notes"],
-  "skills": [],
+  "tags": ["game-dev", "ideation", "workflow", "dumont"],
+  "skills": [
+    {
+      "id": "init-game-docs",
+      "path": "skills/init-game-docs/SKILL.md",
+      "role": "foundation",
+      "description": "Scaffolds the standard Dumont-style game design document structure (Game Idea, Core Mechanic, Exposé, etc.) and provides the shared workshop reference files in its references/ folder. Prerequisite for all other skills in this marketplace."
+    },
+    {
+      "id": "write-game-idea",
+      "path": "skills/write-game-idea/SKILL.md",
+      "role": "stage",
+      "stage": "01-game-idea",
+      "requires": ["init-game-docs"],
+      "description": "Co-develops the Game Idea document (stage 1 of the Dumont methodology). Reads workshop background from init-game-docs/references/."
+    }
+  ],
   "compatibility": {
     "claude_code": ">=1.0.0"
   }

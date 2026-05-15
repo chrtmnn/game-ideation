@@ -1,10 +1,14 @@
 {
-  "name": "game-ideation-skills",
+  "name": "game-ideation",
   "version": "0.1.0",
-  "description": "Collection of skills for AI agents to support game ideation and early development processes",
+  "description": "A collection of AI agent skills for game ideation and early game development workflows, based on the Daniel Dumont workshop methodology. The skill `init-game-docs` is the foundation — it scaffolds the document structure and owns the shared workshop reference files that all other skills read from. Install `init-game-docs` first; install other skills only as needed.",
   "type": "module",
   "scripts": {
     "validate": "node scripts/validate-skills.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrtmnn/game-ideation.git"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -15,7 +19,8 @@
     "game-ideation",
     "chat-gpt",
     "claude",
-    "claude-code"
+    "claude-code",
+    "daniel-dumont"
   ],
   "license": "MIT"
 }
