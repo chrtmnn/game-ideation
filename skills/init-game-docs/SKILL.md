@@ -1,6 +1,6 @@
 ---
 name: init-game-docs
-description: Use when the user asks to initialize game design documentation, start a new game concept project, or scaffold the standard Dumont-style document structure (Game Idea, Core Mechanic, Exposé, Game Concept, Functional Design, Logical Concept, Interface Concept, Balancing, Change Log). Creates one folder per document type, each containing the matching template file.
+description: Use when the user asks to initialize game design documentation, start a new game concept project, or scaffold the standard Dumont-style document structure (Game Idea, Core Mechanic, Exposé, Game Concept, Functional Design, Logical Concept, Interface Concept, Balancing, Change Log). Creates one folder per document type, each containing the matching template file. German triggers include "Spielkonzept-Dokumente anlegen", "Game-Docs initialisieren", "neues Spielprojekt aufsetzen", "Dumont-Dokumentenstruktur erstellen", "Spielidee-Vorlagen erzeugen".
 metadata:
   author: chrtmnn <c@hrtmnn.com>
   version: 0.1.0
@@ -22,8 +22,8 @@ Bootstraps a fresh set of game design documents based on the Daniel Dumont works
 - User starts a new game concept project from scratch
 - User asks to "initialize", "scaffold", or "set up" game documentation
 - User wants the full Dumont stack of design documents in one go
-- Typical phrasings: "init game docs", "neue game-docs anlegen", "start a new game concept",
-  "set up the design documents"
+- Typical phrasings (EN): "init game docs", "start a new game concept", "set up the design documents"
+- Typical phrasings (DE): "neue game-docs anlegen", "Spielkonzept-Dokumente initialisieren", "neues Spielprojekt aufsetzen", "Dumont-Struktur erstellen"
 
 ## When NOT to use
 

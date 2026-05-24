@@ -82,7 +82,20 @@ D --> F[Stage 6: AI Conception<br/>situation/reaction]
 
 ## Install
 
-Install all skills interactively:
+### Claude Code (plugin)
+
+Inside Claude Code, add the marketplace, then install the plugin:
+
+```
+/plugin marketplace add chrtmnn/game-ideation
+/plugin install game-ideation@chrtmnn-game-ideation
+```
+
+Both skills (`init-game-docs`, `write-game-idea`) come bundled in the plugin. Invoke them as `/game-ideation:init-game-docs` and `/game-ideation:write-game-idea` once installed.
+
+### skills.sh (cross-agent CLI)
+
+For any agent that follows the [agentskills.io](https://agentskills.io/specification) spec (Cursor, Codex, Copilot, Gemini CLI, Claude Code):
 
 ```bash
 npx skills add chrtmnn/game-ideation

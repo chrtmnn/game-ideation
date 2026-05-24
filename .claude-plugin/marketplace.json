@@ -1,34 +1,25 @@
 {
-  "$schema": "https://claude.ai/schemas/plugin-manifest/v1",
-  "id": "game-ideation",
-  "name": "Game Ideation Skills",
-  "version": "0.1.0",
-  "description": "A collection of AI agent skills for game ideation and early game development workflows, based on the Daniel Dumont workshop methodology. The skill `init-game-docs` is the foundation — it scaffolds the document structure and owns the shared workshop reference files that all other skills read from. Install `init-game-docs` first; install other skills only as needed.",
-  "author": {
+  "name": "chrtmnn-game-ideation",
+  "owner": {
     "name": "Christian Hartmann",
-    "email": "c@hrtmnn.com",
-    "url": "https://github.com/chrtmnn"
+    "email": "c@hrtmnn.com"
   },
-  "homepage": "https://github.com/chrtmnn/game-ideation",
-  "license": "MIT",
-  "tags": ["game-dev", "ideation", "workflow", "dumont"],
-  "skills": [
+  "plugins": [
     {
-      "id": "init-game-docs",
-      "path": "skills/init-game-docs/SKILL.md",
-      "role": "foundation",
-      "description": "Scaffolds the standard Dumont-style game design document structure (Game Idea, Core Mechanic, Exposé, etc.) and provides the shared workshop reference files in its references/ folder. Prerequisite for all other skills in this marketplace."
-    },
-    {
-      "id": "write-game-idea",
-      "path": "skills/write-game-idea/SKILL.md",
-      "role": "stage",
-      "stage": "01-game-idea",
-      "requires": ["init-game-docs"],
-      "description": "Co-develops the Game Idea document (stage 1 of the Dumont methodology). Reads workshop background from init-game-docs/references/."
+      "name": "game-ideation",
+      "source": ".",
+      "description": "A collection of AI agent skills for game ideation and early development workflows, based on the Daniel Dumont workshop methodology (Making Games Magazin 2010/2011). The plugin bundles the `init-game-docs` foundation skill (scaffolds the Dumont document structure and hosts shared workshop references) and stage-specific skills like `write-game-idea` that co-develop each design document with the user.",
+      "version": "0.1.0",
+      "homepage": "https://github.com/chrtmnn/game-ideation",
+      "repository": "https://github.com/chrtmnn/game-ideation",
+      "license": "MIT",
+      "author": {
+        "name": "Christian Hartmann",
+        "email": "c@hrtmnn.com",
+        "url": "https://github.com/chrtmnn"
+      },
+      "keywords": ["game-dev", "ideation", "workflow", "dumont", "game-design", "concept", "spielidee"],
+      "category": "game-dev"
     }
-  ],
-  "compatibility": {
-    "claude_code": ">=1.0.0"
-  }
+  ]
 }

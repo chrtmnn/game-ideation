@@ -108,6 +108,54 @@ function scan(root) {
 
 for (const root of roots) scan(root);
 
+// Version sync check: package.json, marketplace.json (plugins[0]), plugin.json
+// must all carry the same version string.
+function checkVersionSync() {
+  const sources = [
+    { path: "package.json", read: (j) => j.version },
+    { path: ".claude-plugin/marketplace.json", read: (j) => j.plugins?.[0]?.version },
+    { path: ".claude-plugin/plugin.json", read: (j) => j.version }
+  ];
+
+  const versions = sources.map(({ path: rel, read }) => {
+    const abs = path.join(repoRoot, rel);
+    if (!fs.existsSync(abs)) return { rel, version: null, missing: true };
+    try {
+      const json = JSON.parse(fs.readFileSync(abs, "utf8"));
+      return { rel, version: read(json) ?? null };
+    } catch (e) {
+      return { rel, version: null, error: e.message };
+    }
+  });
+
+  for (const v of versions) {
+    if (v.missing) {
+      console.error(`✖  version-sync: ${v.rel} not found`);
+      errors++;
+    } else if (v.error) {
+      console.error(`✖  version-sync: ${v.rel} parse error — ${v.error}`);
+      errors++;
+    } else if (!v.version) {
+      console.error(`✖  version-sync: ${v.rel} has no version field`);
+      errors++;
+    }
+  }
+
+  const present = versions.filter((v) => v.version);
+  if (present.length > 1) {
+    const distinct = new Set(present.map((v) => v.version));
+    if (distinct.size > 1) {
+      const pairs = present.map((v) => `${v.rel}=${v.version}`).join(", ");
+      console.error(`✖  version-sync: versions differ (${pairs})`);
+      errors++;
+    } else {
+      console.log(`✓  version-sync: all at ${[...distinct][0]}`);
+    }
+  }
+}
+
+checkVersionSync();
+
 if (errors > 0) {
   console.error(`\n${errors} validation error(s).`);
   process.exit(1);

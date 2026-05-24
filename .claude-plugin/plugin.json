@@ -1,0 +1,14 @@
+{
+  "name": "game-ideation",
+  "version": "0.1.0",
+  "description": "A collection of AI agent skills for game ideation and early development workflows, based on the Daniel Dumont workshop methodology (Making Games Magazin 2010/2011).",
+  "homepage": "https://github.com/chrtmnn/game-ideation",
+  "repository": "https://github.com/chrtmnn/game-ideation",
+  "license": "MIT",
+  "author": {
+    "name": "Christian Hartmann",
+    "email": "c@hrtmnn.com",
+    "url": "https://github.com/chrtmnn"
+  },
+  "keywords": ["game-dev", "ideation", "workflow", "dumont", "game-design", "concept", "spielidee"]
+}
