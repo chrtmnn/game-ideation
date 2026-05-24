@@ -18,9 +18,46 @@ function readFrontmatter(file) {
   if (!match) return null;
 
   const fm = {};
-  for (const line of match[1].split("\n")) {
-    const m = line.match(/^([a-zA-Z0-9_-]+):\s*(.*)$/);
-    if (m) fm[m[1]] = m[2].replace(/^["']|["']$/g, "").trim();
+  const lines = match[1].split("\n");
+
+  for (let i = 0; i < lines.length; i++) {
+    const head = lines[i].match(/^([a-zA-Z0-9_-]+):\s*(.*)$/);
+    if (!head) continue;
+
+    const key = head[1];
+    let value = head[2].trim();
+
+    // Block scalar: > (folded) or | (literal), optional chomp indicator + or -
+    const blockMatch = value.match(/^([>|])[-+]?\s*$/);
+    if (blockMatch) {
+      const style = blockMatch[1];
+      const blockLines = [];
+      let baseIndent = null;
+      let j = i + 1;
+      while (j < lines.length) {
+        const line = lines[j];
+        if (line.trim() === "") {
+          blockLines.push("");
+          j++;
+          continue;
+        }
+        const indentMatch = line.match(/^(\s+)/);
+        if (!indentMatch) break;
+        if (baseIndent === null) baseIndent = indentMatch[0].length;
+        if (indentMatch[0].length < baseIndent) break;
+        blockLines.push(line.slice(baseIndent));
+        j++;
+      }
+      i = j - 1; // outer i++ will land on the line that ended the block
+      value =
+        style === ">"
+          ? blockLines.filter((l) => l !== "").join(" ").trim()
+          : blockLines.join("\n").trim();
+    } else {
+      value = value.replace(/^["']|["']$/g, "").trim();
+    }
+
+    fm[key] = value;
   }
   return fm;
 }
