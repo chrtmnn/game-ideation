@@ -69,9 +69,9 @@ D --> F[Stage 6: AI Conception<br/>situation/reaction]
 |------------------|-------------------------------------------------------------------------------------------------|----------------------------------------------|-------------|
 | Foundation       | folder scaffold + templates                                                                     | [`init-game-docs`](skills/init-game-docs/)   | ✅ available |
 | 1. Game Idea     | `01_GameIdea.md` + notes sidecar                                                                | [`write-game-idea`](skills/write-game-idea/) | ✅ available |
-| 2. Core Mechanic | `02_CoreMechanic.md`                                                                            | `write-core-mechanic`                        | 🔜 planned  |
-| 3. Exposé        | `03_Exposé.md`                                                                                  | `write-expose`                               | 🔜 planned  |
-| 4. Game Concept  | `04_GameConcept.md`, `05_FunctionalDesign.md`, `06_LogicalConcept.md`, `07_InterfaceConcept.md` | `write-game-concept`                         | 🔜 planned  |
+| 2. Core Mechanic | `02_CoreMechanic.md` + notes sidecar                                                            | [`write-core-mechanic`](skills/write-core-mechanic/) | ✅ available |
+| 3. Exposé        | `03_Exposé.md` + notes sidecar                                                                  | [`write-game-expose`](skills/write-game-expose/) | ✅ available |
+| 4. Game Concept  | `04_GameConcept.md`, `05_FunctionalDesign.md`, `06_LogicalConcept.md`, `07_InterfaceConcept.md` + notes sidecar | [`write-game-concept`](skills/write-game-concept/) | ✅ available |
 | 5. Balancing     | `08_BalancingAndParameters.md`                                                                  | `write-balancing`                            | 🔜 planned  |
 | 6. AI Conception | extends Logical Concept                                                                         | `write-ai-conception`                        | 🔜 planned  |
 | Cross-cutting    | `09_ChangeLog.md`                                                                               | (manual / part of every skill)               | —           |
@@ -91,7 +91,7 @@ Inside Claude Code, add the marketplace, then install the plugin:
 /plugin install game-ideation@chrtmnn-game-ideation
 ```
 
-Both skills (`init-game-docs`, `write-game-idea`) come bundled in the plugin. Invoke them as `/game-ideation:init-game-docs` and `/game-ideation:write-game-idea` once installed.
+All skills (`init-game-docs`, `write-game-idea`, `write-core-mechanic`, `write-game-expose`, `write-game-concept`) come bundled in the plugin. Invoke them as `/game-ideation:<skill-name>` once installed, e.g. `/game-ideation:write-game-idea`.
 
 ### skills.sh (cross-agent CLI)
 

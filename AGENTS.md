@@ -26,6 +26,9 @@ that all other stage-specific skills read via relative sibling paths.
 | `skills/init-game-docs/assets/game_concept_templates_dumont.md` | Source of all document templates (sections 3.1 – 3.9) |
 | `skills/init-game-docs/references/` | English summaries of all six Dumont workshop parts + a DE↔EN glossary; consumed by sibling skills via `../init-game-docs/references/...` |
 | `skills/write-game-idea/SKILL.md` | Stage 1 skill — co-develops `01_GameIdea.md` with the user |
+| `skills/write-core-mechanic/SKILL.md` | Stage 2 skill — co-develops `02_CoreMechanic.md` with the user |
+| `skills/write-game-expose/SKILL.md` | Stage 3 skill — co-develops the 16-chapter `03_Exposé.md` with the user |
+| `skills/write-game-concept/SKILL.md` | Stage 4 skill — co-develops `04_GameConcept.md` (umbrella for the Functional Design / Logical Concept / Interface Concept sub-documents) |
 | `scripts/validate-skills.mjs` | Skill validator: frontmatter checks, name-matches-folder, duplicate detection, sibling-reference resolution |
 | `.claude-plugin/marketplace.json` | Claude Code marketplace catalog — lists `game-ideation` as a single plugin pointing to the repo root |
 | `.claude-plugin/plugin.json` | The plugin manifest declared by `marketplace.json`. Skills are auto-discovered from `skills/` |
@@ -72,7 +75,7 @@ node skills/init-game-docs/scripts/init.mjs /tmp/game-docs-test
 | `skills/init-game-docs/references/00_glossary.md` | DE↔EN terminology authority. Every skill should defer to this when translating user input |
 | `skills/init-game-docs/references/01_game-idea.md` … `06_ai-conception.md` | Compressed workshop summaries — each starts with TL;DR + Agent Cheat Sheet that doubles as skill operating rules |
 | `scripts/validate-skills.mjs` | Single quality gate. Failing CI almost always means: frontmatter shape, folder/name mismatch, or a broken `../init-game-docs/...` path after a rename |
-| `.claude-plugin/marketplace.json` + `.claude-plugin/plugin.json` | Together form a one-plugin Claude Code marketplace. The marketplace's `name` is `chrtmnn-game-ideation`; the plugin's `name` is `game-ideation`. Both skills are auto-discovered from `skills/<name>/SKILL.md` |
+| `.claude-plugin/marketplace.json` + `.claude-plugin/plugin.json` | Together form a one-plugin Claude Code marketplace. The marketplace's `name` is `chrtmnn-game-ideation`; the plugin's `name` is `game-ideation`. All skills are auto-discovered from `skills/<name>/SKILL.md` |
 
 ## Gotchas
 

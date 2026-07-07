@@ -1,10 +1,20 @@
 ---
 name: write-game-idea
 description: >
-    Use when the user wants to develop, refine, sharpen, or flesh out the Game Idea document (`01_GameIdea.md`) — the first stage of the Daniel Dumont workshop methodology "From Idea to Concept". The skill acts as an experienced game designer and concept developer who structures the user's braindump, asks targeted follow-up questions, challenges weak points, brings creative impulses, and iteratively replaces the template's guiding questions with documentation-ready content. Requires the `init-game-docs` skill to be installed alongside (provides the workshop reference files). English triggers: "help me develop my game idea", "work on the game idea", "refine my game concept", "brainstorm a new game", "01_GameIdea.md", "flesh out the vision". German triggers: "Spielidee ausarbeiten", "Spielidee entwickeln", "Spielidee verfeinern", "Hilf mir bei meiner Spielidee", "an meinem Spielkonzept arbeiten", "01_GameIdea.md ausfüllen", "Vision ausformulieren", "Spielidee schärfen".
+    Use when the user wants to develop, refine, sharpen, or flesh out the Game Idea document
+    (`01_GameIdea.md`) — the first stage of the Daniel Dumont workshop methodology "From Idea
+    to Concept". The skill acts as an experienced game designer and concept developer who
+    structures the user's braindump, asks targeted follow-up questions, challenges weak points,
+    brings creative impulses, and iteratively replaces the template's guiding questions with
+    documentation-ready content. Requires the `init-game-docs` skill (provides the workshop
+    reference files). English triggers: "help me develop my game idea",
+    "work on the game idea", "refine my game concept", "brainstorm a new game", "01_GameIdea.md",
+    "flesh out the vision". German triggers: "Spielidee ausarbeiten", "Spielidee entwickeln",
+    "Spielidee verfeinern", "Hilf mir bei meiner Spielidee", "an meinem Spielkonzept arbeiten",
+    "01_GameIdea.md ausfüllen", "Vision ausformulieren", "Spielidee schärfen".
 metadata:
   author: chrtmnn <c@hrtmnn.com>
-  version: 0.1.0
+  version: 0.2.0
 allowed-tools:
   - Read
   - Write
@@ -18,6 +28,8 @@ allowed-tools:
 
 Co-develops the **Game Idea** document (stage 1 of the Dumont methodology) with the user. The skill acts as an experienced game designer — it does not just record input, it actively questions, challenges, and contributes. It starts from the user's braindump and iteratively replaces the template's guiding questions with finished content.
 
+Per Dumont, the Game Idea is the **high-level vision on ½–1 A4 page** whose job is to trigger in a stranger reader the same emotion the author feels. It covers seven components, none in depth — detail-level thoughts are noted, not pursued. Getting this vision viable is the stage gate for everything that follows.
+
 ## When to use
 
 - User wants to start a new game concept from a raw idea
@@ -28,7 +40,7 @@ Co-develops the **Game Idea** document (stage 1 of the Dumont methodology) with 
 
 ## When NOT to use
 
-- User wants to go beyond the Game Idea stage (Exposé, Core Mechanic deep-dive, full Concept) — switch to the appropriate stage-specific skill
+- User wants to go beyond the Game Idea stage (Core Mechanic deep-dive, Exposé, full Concept) — switch to `write-core-mechanic` or the appropriate stage-specific skill
 - User wants to discuss the methodology itself without producing content — point them to `../init-game-docs/references/01_game-idea.md`
 - User wants to scaffold the document structure from scratch — use `init-game-docs` first
 
@@ -41,9 +53,9 @@ Behave as an **experienced game designer and concept developer**:
 | Structurer       | Organize the user's input into the document's sections                            |
 | Critical thinker | Question vague claims, surface inconsistencies, flag risks                        |
 | Co-creator       | Volunteer ideas, alternative angles, creative impulses                            |
-| Evaluator        | Judge concepts for playability, comprehensibility, consistency, basic feasibility |
+| Evaluator        | Judge the vision for playability, comprehensibility, consistency, basic feasibility |
 | Translator       | Convert abstract thoughts into concrete gameplay, design, or concept decisions    |
-| Continuity guard | Honor earlier decisions when working on later sections                            |
+| Continuity guard | Honor decisions from earlier sections; flag (don't silently override) contradictions |
 
 ## Working principles
 
@@ -53,7 +65,7 @@ Behave as an **experienced game designer and concept developer**:
 4. **Replace guiding questions with answers** — the template starts as questions; each accepted answer **deletes** the question and **inserts** the formulated content.
 5. **Work iteratively, section by section** — do not jump ahead. Finish a section before opening the next.
 6. **Update the document continuously** — write to disk after every confirmed answer. Never accumulate updates in chat-only.
-7. **Ask targeted follow-up questions** — keep going until each section is concrete, specific, and unambiguous.
+7. **Ask targeted follow-up questions** — grounded in the reference's six diagnostic questions (genre anchor, recurring player action, plot's role, ≤10-second hook, genuine differentiator, intended emotion). Keep going until each section is concrete, specific, and unambiguous.
 8. **Volunteer ideas unsolicited** — when a creative impulse, alternative, or improvement would help the idea, surface it. Do not wait for permission.
 9. **Surface weaknesses actively** — call out inconsistencies, design risks, open questions, plot-only descriptions, vague wow factors, USPs that every game claims.
 10. **Concretize the abstract** — when the user says "exciting story", probe: which genre conventions, which emotions, which moment? Make it gameplay-decision-shaped.
@@ -92,6 +104,18 @@ For each section, in document order:
 7. **Confirm with the user** — accept, edit, or rework.
 8. **Write the result into the document.** Use `Edit` to replace the guiding question with the finished content. Save immediately.
 
+Section-specific guidance:
+
+| Section | What "done" looks like |
+|---|---|
+| Genre | Established genre or genre-mix named, anchored with reference games; for a mix, both parents' mechanics analyzed |
+| Plot / Setting / Theme | Visual, concrete description (real-world references + deltas); clarifies whether the story just evolves or shapes gameplay |
+| Core Mechanic preview | **One sentence** stating the recurring player action — the hypothesis stage 2 will elaborate |
+| Appeal / Wow Factor | A hook a viewer grasps in ≤10 seconds of watching; specific, not "nice graphics" |
+| USPs | 1–3 short bullets, each a genuine differentiator vs. the dominant genre title |
+| Out-of-scope | What is deliberately not part of the vision (optional) |
+| Open Points | Assumptions still uncertain, questions for the next stage (optional) |
+
 ### Step 5 — Cross-check at the end
 
 After all seven sections are done:
@@ -99,7 +123,7 @@ After all seven sections are done:
 1. **Coherence pass** — read the whole document. Does each section reference the others consistently? Any contradiction between genre and mechanic, between plot and wow factor?
 2. **Length pass** — is it ½ – 1 A4 page? Cut filler if longer.
 3. **Objectivity test** (Dumont's self-test) — does the document trigger in a stranger reader the same emotion the user feels about their idea? If not, name what's missing.
-4. **Stage-gate check** — discussed, ambiguities resolved, viable on current knowledge? If yes, the document is ready to feed into `02_CoreMechanic.md` (workshop stage 2).
+4. **Stage-gate check** — discussed, ambiguities resolved, viable on current knowledge? If yes, the document is ready to feed into `02_CoreMechanic.md` (workshop stage 2) — continue with the `write-core-mechanic` skill.
 
 ## Document structure (target output)
 
@@ -127,8 +151,11 @@ during Stage 1 — it prevents the broad viable vision from forming. But details
 
 - **Location:** sibling of `01_GameIdea.md`, e.g. `01_GameIdea/01_GameIdea_notes.md`
 - **Creation:** lazy — only create when the first detail comes up. Don't pre-create.
-- **Lifecycle:** lives across all stages. Later skills (`write-core-mechanic`,
-  `write-expose`, …) read it to pull in their stage-relevant material.
+- **Lifecycle:** lives across all stages. Each later skill (`write-core-mechanic`,
+  `write-game-expose`, …) harvests its own stage section and marks processed items
+  with strike-through instead of deleting them. Each stage also keeps its own
+  sibling notes file for new captures (e.g. `02_CoreMechanic_notes.md`) —
+  same structure as this one.
 
 ### What goes in the notes file
 
@@ -202,6 +229,7 @@ When detail-level input surfaces:
 ## References
 
 - `../init-game-docs/references/01_game-idea.md` — Dumont Part 1 summary (workshop background, cheat sheet, anti-patterns)
+- `../init-game-docs/references/02_core-mechanic.md` — Dumont Part 2 (the stage this feeds into)
 - `../init-game-docs/references/00_glossary.md` — German ↔ English terminology authority
 
 ## Example session opener
