@@ -61,7 +61,7 @@ D --> F[Stage 6: AI Conception<br/>situation/reaction]
 
 **Stage-gate rule:** never advance until the current stage has been discussed, ambiguities resolved, and content is viable on current knowledge.
 
-**Detail discipline:** anything that belongs to a later stage gets parked in a per-document `*_notes.md` sidecar file. Later-stage skills pick those notes up when they get there.
+**Detail discipline:** anything that belongs to a later stage gets parked in a per-document `*_notes.md` sidecar file. Each later-stage skill harvests its own section from all earlier sidecars when it starts, marks processed items with strike-through, and keeps its own sidecar for what surfaces during its stage.
 
 ### Stages, documents, and skills
 
@@ -75,6 +75,17 @@ D --> F[Stage 6: AI Conception<br/>situation/reaction]
 | 5. Balancing     | `08_BalancingAndParameters.md`                                                                  | `write-balancing`                            | 🔜 planned  |
 | 6. AI Conception | extends Logical Concept                                                                         | `write-ai-conception`                        | 🔜 planned  |
 | Cross-cutting    | `09_ChangeLog.md`                                                                               | (manual / part of every skill)               | —           |
+
+### Stage skill anatomy
+
+All `write-*` stage skills share the same structure and behavior, so a session feels the same at every stage:
+
+1. **Anchor** — the skill reads its Dumont part summary from `init-game-docs/references/` before working; the summary's Agent Cheat Sheet is its rulebook.
+2. **Build on earlier stages** — it reads all earlier-stage documents, treats their decisions as binding (contradictions are flagged, never silently overridden), and harvests its stage section from the earlier notes sidecars.
+3. **Iterate** — it walks the document's sections/chapters in order, replacing the template's guiding questions with confirmed content and writing to disk after every accepted answer.
+4. **Co-design** — throughout, it questions vague claims, surfaces weaknesses, and volunteers ideas; each skill carries its stage's anti-pattern table (e.g. "atmosphere mistaken for mechanic", "USPs every game claims", "edge cases left implicit").
+5. **Park details** — later-stage input goes to the skill's own `*_notes.md` sidecar instead of bloating the document.
+6. **Gate** — a final cross-check verifies stage-gate criteria and hands off to the next stage's skill. (Exception: the Game Concept is a living document — its skill replaces the one-time gate with a per-session maintenance pass.)
 
 ### Dependency model
 

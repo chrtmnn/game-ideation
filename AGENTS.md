@@ -63,7 +63,8 @@ node skills/init-game-docs/scripts/init.mjs /tmp/game-docs-test
 - **Sibling-skill references:** stage skills read foundation files via `../init-game-docs/references/<file>.md`. The validator resolves these on each run.
 - **Allowed-tools patterns:** include both `Bash(...)` and `PowerShell(...)` variants so skills run cross-platform without permission prompts.
 - **Skill documents are written for AI agents**, not humans — dense tables, decision matrices, anti-pattern lists. Prose-readability is a non-goal.
-- **Detail discipline (Dumont rule):** anything not belonging to the current workshop stage gets parked in a per-document `*_notes.md` sidecar.
+- **Detail discipline (Dumont rule):** anything not belonging to the current workshop stage gets parked in a per-document `*_notes.md` sidecar. Stage skills harvest their own stage section from all earlier sidecars at session start and mark processed items with strike-through instead of deleting them.
+- **Stage skills share one SKILL.md template.** All `write-*` skills follow the same section order: intro + Dumont framing → When to use / When NOT to use → Persona table → Working principles → Instructions (locate documents → build on earlier stages → iterate section-by-section → cross-check with stage gate) → Document structure table → Detail capture (`*_notes.md`) → Anti-patterns table → References → Example session opener. New stage skills (`write-balancing`, `write-ai-conception`) must copy this structure; `skills/write-core-mechanic/SKILL.md` is a good reference.
 - **CRLF tolerant.** Repo is developed on Windows. The validator normalizes line endings before parsing frontmatter; new scripts should follow suit.
 - **Version field is single-source.** `package.json` `version`, `.claude-plugin/marketplace.json` plugin entry `version`, and `.claude-plugin/plugin.json` `version` must always be equal. Bump all three together on any release.
 
