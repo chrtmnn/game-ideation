@@ -1,7 +1,8 @@
 # Game Ideation AI Agent Skills
 
-[![agentskills.io](https://img.shields.io/badge/agentskills.io-specification-555?labelColor=eeeee8&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9Ii0yIC0yIDIyIDIyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik05IDEuNUwxNS41IDUuMjVWMTIuNzVMOSAxNi41TDIuNSAxMi43NVY1LjI1TDkgMS41WiIgZmlsbD0iIzAwMCI+PC9wYXRoPjwvc3ZnPg==)](https://agentskills.io/specification/)
-[![skills.sh](https://img.shields.io/badge/skills.sh-ecosystem-555?labelColor=222&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9Ii00IC00IDI0IDI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik04IDFMMTYgMTVIMEw4IDFaIiBmaWxsPSIjZmZmIj48L3BhdGg+PC9zdmc+)](https://skills.sh/)
+[![skills.sh](https://skills.sh/b/chrtmnn/game-ideation)](https://skills.sh/chrtmnn/game-ideation) 
+[![agentskills.io](https://img.shields.io/badge/Agent_Skills-Specification-555?labelColor=eeeee8&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9Ii0yIC0yIDIyIDIyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik05IDEuNUwxNS41IDUuMjVWMTIuNzVMOSAxNi41TDIuNSAxMi43NVY1LjI1TDkgMS41WiIgZmlsbD0iIzAwMCI+PC9wYXRoPjwvc3ZnPg==)](https://agentskills.io/specification/)
+<!--[![skills.sh](https://img.shields.io/badge/skills.sh-ecosystem-555?labelColor=222&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9Ii00IC00IDI0IDI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik04IDFMMTYgMTVIMEw4IDFaIiBmaWxsPSIjZmZmIj48L3BhdGg+PC9zdmc+)](https://skills.sh/) -->
 
 A structured, AI-agent-supported workflow that takes a raw game idea through to a complete, implementation-grade Game Concept — guided by the methodology of Daniel Dumont's six-part workshop *"Von der Idee zum Konzept"* (Making Games Magazin, 2010–2011).
 
